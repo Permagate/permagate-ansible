@@ -1,0 +1,6 @@
+---
+
+dependencies:
+  - { role: setup_ufw }
+  - { role: './roles/_dep/setup_gpg2' }
+  - { role: setup_nodejs }

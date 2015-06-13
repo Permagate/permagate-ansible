@@ -1,0 +1,13 @@
+---
+
+- hosts: localhost
+  vars_files:
+    - config/development.yml
+  roles:
+    - setup_build_essential
+    - setup_git
+    - setup_ufw
+    - setup_nodejs
+    - setup_ror
+    - setup_mysql
+    - setup_sublime_text_3

@@ -1,0 +1,14 @@
+---
+
+- name: Install git
+  apt:
+    name: git
+    state: present
+  become: yes
+  become_method: sudo
+
+- name: Set email
+  command: git config --global user.email {{ git.email }}
+
+- name: Set username
+  command: git config --global user.name {{ git.username }}

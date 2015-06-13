@@ -1,0 +1,8 @@
+---
+
+- name: Install python apt
+  apt:
+    name: python-apt
+    state: present
+  become: yes
+  become_method: sudo

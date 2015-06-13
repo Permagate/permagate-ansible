@@ -1,0 +1,17 @@
+---
+
+- name: Check if nodejs is installed or not
+  command: nodejs -v
+  register: nodejs_version
+  ignore_errors: True
+
+- name: Add nodejs source
+  shell: curl -sL {{ nodejs.url }} | sudo bash -
+  when: nodejs_version | failed
+
+- name: Install nodejs
+  apt:
+    name: nodejs
+    state: present
+  become: yes
+  become_method: sudo

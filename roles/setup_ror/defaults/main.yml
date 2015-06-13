@@ -1,0 +1,22 @@
+---
+
+# The rvm-related default values
+rvm:
+  # The rvm installer url
+  url: https://get.rvm.io
+  
+  # The rvm installer key settings
+  key:
+    server: hkp://pgp.mit.edu
+    port: 11371
+    value: 409B6B1796C275462A1703113804BB82D39DC0E3
+  
+# The ruby-related default-values
+ruby:
+  # The default version
+  version: 2.2.2
+  
+  # The initial installed gems
+  init_gems:
+    - rails
+    - bundler

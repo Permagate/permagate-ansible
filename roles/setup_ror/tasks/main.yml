@@ -1,0 +1,29 @@
+---
+
+- name: Make sure gpg port is opened
+  ufw:
+    port: "{{ rvm.key.port }}"
+    rule: allow
+    state: enabled
+  become: yes
+  become_method: sudo
+
+- name: Check if rvm is installed or not
+  command: rvm -v
+  register: rvm_version
+  ignore_errors: True
+
+- name: Install MPapsis public key
+  command: gpg --keyserver {{ rvm.key.server }} --recv-keys {{ rvm.key.value }}
+  when: rvm_version | failed
+
+- name: Install RVM, Ruby, Rails, and Bundler
+  shell: "\\curl -sSL https://get.rvm.io | bash -s stable"
+  when: rvm_version | failed
+
+- name: Install Ruby
+  command: rvm install {{ ruby.version }}
+
+- name: Install Initial Gems
+  command: gem install {{ item }}
+  with_items: "{{ ruby.init_gems }}"

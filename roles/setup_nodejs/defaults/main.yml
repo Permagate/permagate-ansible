@@ -1,0 +1,6 @@
+---
+
+# nodejs-related settings
+nodejs:
+  # The package url
+  url: https://deb.nodesource.com/setup

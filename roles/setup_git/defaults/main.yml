@@ -1,0 +1,9 @@
+---
+
+# git-related settings
+git:
+  # Your username
+  username: random
+  
+  # Your email
+  email: random@example.com

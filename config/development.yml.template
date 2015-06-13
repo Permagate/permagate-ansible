@@ -1,0 +1,52 @@
+---
+
+#####
+# This file just aggregates the values of all ./roles/X/defaults/main.yml and commenting them.
+# The default values have lowest priority, so you can just change the value in this file by uncommenting the related setting.
+# Also, if you make a custom playbook, don't forget to include this file!
+#
+# To change, just uncomment the setting that you want to change. You need to uncomment all setting to the root level!
+# For example, if you want to change rvm.url, you need to uncomment all lines under rvm:
+# #rvm:                          rvm:
+# #  url:   => uncomment all =>   url:
+# #  other:                       other:
+#
+# Happy ansible-ing!
+#####
+
+## git-related settings
+#git:
+#  # Your username
+#  username: random
+#  
+#  # Your email
+#  email: random@example.com
+
+## The rvm-related default values
+#rvm:
+#  # The rvm installer url
+#  url: https://get.rvm.io
+#  
+#  # The rvm installer key settings
+#  key:
+#    server: hkp://pgp.mit.edu
+#    port: 11371
+#    value: 409B6B1796C275462A1703113804BB82D39DC0E3
+  
+## The ruby-related default-values
+#ruby:
+#  # The default version
+#  version: 2.2.2
+#  
+#  # The initial installed gems
+#  init_gems:
+#    - rails
+#    - bundler
+
+## mysql-related settings
+#mysql:
+#  # Set to false if you don't want to install mysql client
+#  install_client: true
+#
+#  # Set to false if you don't want to install mysql driver
+#  install_driver: true

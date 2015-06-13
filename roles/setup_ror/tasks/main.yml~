@@ -1,0 +1,26 @@
+---
+
+- name: Make sure gpg port is opened
+  ufw:
+    port: "{{ rvm.key.port }}"
+    rule: allow
+    state: enabled
+  become: yes
+  become_method: sudo
+
+- name: Install MPapsis public key
+  command: gpg --keyserver {{ rvm.key.server }} --recv-keys {{ rvm.key.value }}
+
+- name: Download rvm installer
+  uri: 
+    url: "{{ rvm.url }}"
+    dest: "{{ rvm.temporary_installer_path }}"
+
+- name: Install RVM, Ruby, Rails, and Bundler
+  command: bash -s stable --ruby={{ ruby.version }} --gems={{ ruby.init_gems }} < {{ rvm.temporary_installer_path }}
+
+- name: Remove rvm installer
+  file:
+    path: "{{ rvm.temporary_installer_path }}"
+    state: absent
+

@@ -1,0 +1,9 @@
+---
+
+# mysql-related settings
+mysql:
+  # Set to false if you don't want to install mysql client
+  install_client: true
+
+  # Set to false if you don't want to install mysql driver
+  install_driver: true

@@ -1,0 +1,16 @@
+---
+
+- name: Add sublime repository
+  apt_repository:
+    repo: ppa:webupd8team/sublime-text-3
+    state: present
+    update_cache: yes
+  become: yes
+  become_method: sudo
+
+- name: Install Sublime Text 3
+  apt:
+    name: sublime-text-installer
+    state: present
+  become: yes
+  become_method: sudo
