@@ -9,5 +9,6 @@
     - setup_ufw
     - setup_nodejs
     - setup_ror
+    - setup_java
     - setup_mysql
     - setup_sublime_text_3

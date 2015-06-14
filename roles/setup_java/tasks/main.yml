@@ -1,0 +1,15 @@
+---
+
+- name: Install Default JRE
+  apt:
+    name: default-jre
+    state: present
+  become: yes
+  become_method: sudo
+
+- name: Install Default JDK
+  apt:
+    name: default-jdk
+    state: present
+  become: yes
+  become_method: sudo
